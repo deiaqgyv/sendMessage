@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>demo</title>
+<style>
+	button { background: #f60; color: #fff; cursor: pointer; border:0; padding:15px 0; width: 200px;}
+	button.active { background: #eee; color: #999;}
+</style>
+</head>
+<body>
+
+<button type="button" id="btn_getpwd1">获取短信验证码1</button>
+<button type="button" id="btn_getpwd2">获取短信验证码2</button>
+<button type="button" id="btn_getpwd3">获取短信验证码3</button>
+
+<script src="http://c.csdnimg.cn/public/common/libs/jquery/jquery-1.11.1.min.js"></script>
+<script src="sendMessage.js"></script>
+<script>
+$(function(){
+	$("#btn_getpwd1").on("click",function(){
+		var getpwd = new SENDMSG({
+			id : "btn_getpwd1",
+			activeClass : "active",
+			time : 10,
+			callBack : function() {
+				console.log("send done!");
+			}
+		})
+		getpwd.send();
+	})
+	$("#btn_getpwd2").on("click",function(){
+		var getpwd = new SENDMSG({
+			id : "btn_getpwd2",
+			activeClass : "active",
+			time : 20,
+			callBack : function() {
+				console.log("send done!");
+			}
+		})
+		getpwd.send();
+	})
+	$("#btn_getpwd3").on("click",function(){
+		var getpwd = new SENDMSG({
+			id : "btn_getpwd3",
+			activeClass : "active",
+			time : 30,
+			callBack : function() {
+				console.log("send done!");
+			}
+		})
+		getpwd.send();
+	})
+})
+</script>
+</body>
+</html>
