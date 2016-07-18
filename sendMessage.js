@@ -24,18 +24,14 @@ SENDMSG.prototype = {
 			alert("缺少参数id");
 			return false;
 		}
-		var self = this,
-			Obj = $("#"+self.id),
-			tempTime = self.time,
-			tempStr = Math.random().toString(36).substr(2);
+		var self = this, Obj = $("#"+self.id), tempTime = self.time;
 		function setBtnGrays(){
 			Obj.html(self.text+self.time);
 			if(self.time > 0){
 				self.time--;
-				tempStr = setTimeout(function(){setBtnGrays()}, 1000);
+				setTimeout(function(){setBtnGrays()}, 1000);
 			}else {
 				Obj.removeClass(self.activeClass).html('重新发送').attr("disabled",false);
-				clearTimeout(tempStr);
 				$.isFunction(self.callBack) ? self.callBack() : ""
 			}
 		}
